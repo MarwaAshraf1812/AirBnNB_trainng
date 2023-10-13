@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Create a new instance.
         """
-        """ parseline : is a method that is called to parse a line of input entered by the user."""
+        #parseline to extract the class name from the user input and then attempts to create an instance of that class.
 
         class_name = self.parseline(line)[0]
 
