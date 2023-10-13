@@ -12,6 +12,9 @@ class HBNBCommand(cmd.Cmd):
     """
     """
     prompt = "(hbnb)"
+    __classes = {
+        "BaseModel",
+    }
 
     def do_quit(self, line):
         """
