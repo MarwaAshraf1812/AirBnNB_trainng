@@ -23,5 +23,9 @@ class FileStorage:
             try:
                 with open(FileStorage.__file_path, 'r') as file:
                     self.__objects = json.load(file)
+                    for v in self.__objects.items():
+                        className = v["__class__"]
+                        #using the eval function to dynamically create an instance of a class based on the class name
+                        self.new(eval(className)(**v))
             except FileNotFoundError:
                 pass
