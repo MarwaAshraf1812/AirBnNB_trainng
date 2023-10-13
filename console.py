@@ -3,6 +3,9 @@
 Contains the entry point of the command interpreter
 """
 import cmd
+#from models.base_model import BaseModel
+#from models import storage
+
 
 
 class HBNBCommand(cmd.Cmd):
@@ -16,12 +19,38 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
+    def emptyline(self):
+        """
+        Overriding emptyline method from cmd module so that
+        """
+        return True
+
     def do_EOF(self, line):
         """
         EOF command to exit the program
         """
         print() # Print a newline before exiting
         return True
+
+    def do_create(self, line):
+        """
+        Create a new instance.
+        """
+        """ parseline : is a method that is called to parse a line of input entered by the user."""
+        newData = self.parseline(line)
+
+        if newData is None:
+             print("** class name missing **")
+        elif newData not in self.__classes:
+             print("** class doesn't exist **")
+        else:
+            print(eval(newData).id)
+            storage.save()
+
+
+
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
