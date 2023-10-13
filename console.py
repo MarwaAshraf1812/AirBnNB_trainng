@@ -37,20 +37,16 @@ class HBNBCommand(cmd.Cmd):
         Create a new instance.
         """
         """ parseline : is a method that is called to parse a line of input entered by the user."""
-        newData = self.parseline(line)
 
-        if newData is None:
+        class_name = self.parseline(line)[0]
+
+        if class_name is None:
              print("** class name missing **")
-        elif newData not in self.__classes:
+        elif class_name not in self.__classes:
              print("** class doesn't exist **")
         else:
-            print(eval(newData).id)
+            print(eval(class_name).id)
             storage.save()
-
-
-
-
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
