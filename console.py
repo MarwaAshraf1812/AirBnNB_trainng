@@ -16,6 +16,7 @@ class HBNBCommand(cmd.Cmd):
     __classes = {
         "BaseModel",
     }
+
     def do_quit(self, line):
         """
         Quit command to exit the program
