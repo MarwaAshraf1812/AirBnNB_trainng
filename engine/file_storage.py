@@ -5,6 +5,7 @@ Defines the FileStorage class.
 import json
 
 
+
 class FileStorage:
     """
     Represent an abstracted storage engine.

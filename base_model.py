@@ -6,7 +6,8 @@ defines all common attributes/methods for other classes
 from uuid import uuid4
 from datetime import datetime
 from __init__ import storage
-import models
+import zeyad.models as models
+
 
 
 class BaseModel():
