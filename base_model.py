@@ -30,9 +30,9 @@ class BaseModel():
                     continue
                 if key == 'created_at' or 'updated_at':
                     setattr(self, key, datetime.strptime(value, standard) )
-                else :
+                else:
                     setattr(self, key, value)
-        else :
+        else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()

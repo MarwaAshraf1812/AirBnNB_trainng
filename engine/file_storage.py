@@ -47,7 +47,7 @@ class FileStorage:
                     FileStorage.__objects = json.load(file)
                     for v in FileStorage.__objects.items():
                         className = v["__class__"]
-                        #using the eval function to dynamically create an instance of a class based on the class name
+                        # using the eval function to dynamically create an instance of a class based on the class name
                         FileStorage.new(eval(className)(**v))
             except FileNotFoundError:
                 pass
