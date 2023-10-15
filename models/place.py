@@ -3,16 +3,15 @@
     Class Place that inherits from BaseModel,
     and contains all data about place class.
 """
-from .base_model import BaseModel
-from models import City, User, Amenity
+import models
 
 
-class place(BaseModel):
+class Place(models.BaseModel):
     """
     Represents all the attributes.
     """
-    city_id = City.id()
-    user_id = User.id()
+    city_id = ""
+    user_id = ""
     name = ""
     description = ""
     number_rooms = 0
@@ -20,4 +19,4 @@ class place(BaseModel):
     price_by_night = 0
     latitude = 0.0
     longitude = 0.0
-    amenity_ids = Amenity.id()
+    amenity_ids = []

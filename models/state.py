@@ -3,10 +3,10 @@
     Class State that inherits from BaseModel,
     and contains all data about state class.
 """
-from .base_model import BaseModel
+import models
 
 
-class state(BaseModel):
+class State(models.BaseModel):
     """
     Represents all the attributes.
     """

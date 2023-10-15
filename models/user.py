@@ -3,10 +3,10 @@
     Class User that inherits from BaseModel,
     and contains all data about user class
 """
-from .base_model import BaseModel
+import models
 
 
-class user(BaseModel):
+class User(models.BaseModel):
     """
     Represents all the attributes.
     """

@@ -3,15 +3,13 @@
     Class Review that inherits from BaseModel,
     and contains all data about review class.
 """
-from .base_model import BaseModel
-from models import User, Place
-import .models
+import models
 
 
-class place(BaseModel):
+class Review(models.BaseModel):
     """
     Represents all the attributes.
     """
-    place_id = Place.id()
-    user_id = User.id()
+    place_id = ""
+    user_id = ""
     text = ""
