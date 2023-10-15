@@ -3,8 +3,8 @@
 Contains the entry point of the command interpreter
 """
 import cmd
-from zeyad.models.base_model import BaseModel
-from __init__ import storage
+import models
+from models.__init__ import storage
 from shlex import parse
 from datetime import datetime
 

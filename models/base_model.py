@@ -8,7 +8,6 @@ from datetime import datetime
 from __init__ import storage
 
 
-
 class BaseModel():
     """
     Represents the BaseModel of the AirBnB project.

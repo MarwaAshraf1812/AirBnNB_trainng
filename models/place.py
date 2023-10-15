@@ -3,10 +3,10 @@
     Class Place that inherits from BaseModel,
     and contains all data about place class.
 """
-import models
+from models import BaseModel
 
 
-class Place(models.BaseModel):
+class Place(BaseModel):
     """
     Represents all the attributes.
     """

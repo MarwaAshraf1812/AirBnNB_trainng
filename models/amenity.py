@@ -3,10 +3,10 @@
     Class Amenity that inherits from BaseModel,
     and contains all data about Amenity class.
 """
-import models
+from models import BaseModel
 
 
-class Amenity(models.BaseModel):
+class Amenity(BaseModel):
     """
     Represents all the attributes.
     """
