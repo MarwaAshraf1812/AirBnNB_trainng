@@ -2,10 +2,9 @@
 """
 defines all common attributes/methods for other classes
 """
-
 from uuid import uuid4
 from datetime import datetime
-from __init__ import storage
+import models
 
 
 class BaseModel():
@@ -28,15 +27,15 @@ class BaseModel():
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
-                if key == 'created_at' or 'updated_at':
-                    setattr(self, key, datetime.strptime(value, standard) )
+                if key == 'created_at' or key == 'updated_at':
+                    setattr(self, key, datetime.strptime(value, standard))
                 else:
                     setattr(self, key, value)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """
@@ -49,15 +48,28 @@ class BaseModel():
         Update updated_at with the current datetime.
         """
         self.updated_at = datetime.now()
-        storage.save(self)
+        models.storage.save()
+
+    # def to_dict(self):
+    #     """
+    #     returns a dictionary containing all
+    #     keys/values of __dict__ of the instance
+    #     """
+    #     dict = self.__dict__.copy()
+    #     dict["__class__"] = self.__class__.__name__
+    #     dict["created_at"] = str(dict["created_at"].isoformat())
+    #     dict["updated_at"] = str(dict["updated_at"].isoformat())
+    #     return dict
 
     def to_dict(self):
-        """
-        returns a dictionary containing all 
-        keys/values of __dict__ of the instance
-        """
-        dict = self.__dict__.copy()
-        dict["__class__"] = self.__class__.__name__
-        dict["created_at"] = str(dict["created_at"].isoformat())
-        dict["updated_at"] = str(dict["updated_at"].isoformat())
-        return dict
+        instance_dict = self.__dict__.copy()
+        instance_dict["created_at"] = instance_dict["created_at"].isoformat()
+        instance_dict["updated_at"] = instance_dict["updated_at"].isoformat()
+        result_dict = {
+            key: value
+            if key not in {"created_at", "updated_at"}
+            else str(value)
+            for key, value in instance_dict.items()
+        }
+        result_dict['__class__'] = self.__class__.__name__
+        return result_dict

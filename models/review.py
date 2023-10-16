@@ -3,7 +3,7 @@
     Class Review that inherits from BaseModel,
     and contains all data about review class.
 """
-from models import BaseModel
+from .base_model import BaseModel
 
 
 class Review(BaseModel):

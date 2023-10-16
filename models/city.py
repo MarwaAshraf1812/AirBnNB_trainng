@@ -3,12 +3,12 @@
     Class City that inherits from BaseModel,
     and contains all data about city class.
 """
-from models import BaseModel, state
+from .base_model import BaseModel
 
 
 class City(BaseModel):
     """
     Represents all the attributes.
     """
-    state_id = state.id()
+    state_id = ""
     name = ""

@@ -3,7 +3,7 @@
     Class State that inherits from BaseModel,
     and contains all data about state class.
 """
-from models import BaseModel
+from .base_model import BaseModel
 
 
 class State(BaseModel):
